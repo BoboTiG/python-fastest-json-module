@@ -5,7 +5,7 @@ from timeit import timeit
 from types import ModuleType
 from typing import Any, Dict, List
 
-# XXX: here you set which module you want to bhenchmark
+# XXX: here you set which modules you want to benchmark
 MODULES_TO_TEST = ["fast_json", "orjson", "rapidjson", "simdjson", "simplejson", "ujson"]
 
 RAW = (

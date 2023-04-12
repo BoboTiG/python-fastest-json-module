@@ -40,12 +40,6 @@ Run the benchamrk:
 
 ```
 
-### Python 3.7
-
-```bash
-
-```
-
 ## Not An Option
 
 - `cysimdjson`: not a drop-in replacement

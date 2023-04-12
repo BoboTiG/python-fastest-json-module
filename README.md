@@ -2,11 +2,7 @@
 
 Run Python JSON benchmarks to find the fastest module that can be used as a drop-in replacement of the `json` standard one.
 
-Run the benchmark:
-
-```bash
-./bench-json.sh
-```
+Benchmarks are run from a [GitHub workflow](.github/workflows/benchmark.yml).
 
 See the [requirements.txt](requirements.txt) file for exact modules being tested.
 

@@ -34,4 +34,9 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python.runs-on }}
-      - run: ./bench-json.sh
+          cache: pip
+      - run: python -m pip install -U pip wheel
+      - run: python -m pip install -r requirements.txt
+      - run: |
+          python -V
+          python bench-json.py 'fast_json orjson rapidjson simdjson simplejson ujson'

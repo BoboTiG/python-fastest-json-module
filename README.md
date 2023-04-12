@@ -28,14 +28,14 @@ Potential candidates = 'rapidjson, ujson'
 ### Python 3.11
 
 ```bash
- Python 3.11.2
-    json        loads: 2.905 x1.0 | dumps: 4.393 x1.0 ✅
-    fast_json   loads: 1.944 x0.7 | dumps: 5.643 x1.3 ❌
+Python 3.11.3
+    json        loads: 2.880 x1.0 | dumps: 4.389 x1.0 ✅
+    fast_json   loads: 1.990 x0.7 | dumps: 5.697 x1.3 ❌
     orjson      loads: -.--- x-.- | dumps: -.--- x-.- ❌
-    rapidjson   loads: 2.058 x0.7 | dumps: 1.741 x0.4 ✅
-    simdjson    loads: -.--- x-.- | dumps: 4.436 x1.0 ❌
-    simplejson  loads: 3.125 x1.1 | dumps: 9.215 x2.1 ❌
-    ujson       loads: 1.970 x0.7 | dumps: 2.139 x0.5 ✅
+    rapidjson   loads: 2.065 x0.7 | dumps: 1.772 x0.4 ✅
+    simdjson    loads: -.--- x-.- | dumps: 4.404 x1.0 ❌
+    simplejson  loads: 3.221 x1.1 | dumps: 9.158 x2.1 ❌
+    ujson       loads: 1.985 x0.7 | dumps: 2.282 x0.5 ✅
 
 Potential candidates = 'rapidjson, ujson'
 ```
@@ -43,14 +43,14 @@ Potential candidates = 'rapidjson, ujson'
 ### Python 3.10
 
 ```bash
-Python 3.10.10
-    json        loads: 3.850 x1.0 | dumps: 5.652 x1.0 ✅
-    fast_json   loads: 2.517 x0.7 | dumps: 7.710 x1.4 ❌
+Python 3.10.11
+    json        loads: 3.652 x1.0 | dumps: 5.241 x1.0 ✅
+    fast_json   loads: 2.415 x0.7 | dumps: 6.978 x1.3 ❌
     orjson      loads: -.--- x-.- | dumps: -.--- x-.- ❌
-    rapidjson   loads: 2.458 x0.6 | dumps: 2.190 x0.4 ✅
-    simdjson    loads: -.--- x-.- | dumps: 5.621 x1.0 ❌
-    simplejson  loads: 4.256 x1.1 | dumps: 11.648 x2.1 ❌
-    ujson       loads: 2.552 x0.7 | dumps: 2.717 x0.5 ✅
+    rapidjson   loads: 2.217 x0.6 | dumps: 1.908 x0.4 ✅
+    simdjson    loads: -.--- x-.- | dumps: 5.178 x1.0 ❌
+    simplejson  loads: 4.008 x1.1 | dumps: 10.494 x2.0 ❌
+    ujson       loads: 2.351 x0.6 | dumps: 2.343 x0.4 ✅
 
 Potential candidates = 'rapidjson, ujson'
 ```

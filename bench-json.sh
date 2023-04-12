@@ -23,13 +23,15 @@ main() {
     python3 -m venv "${VENV}"
     source "${VENV}/bin/activate"
 
-    if [[ "$(${PYTHON} -V | /bin/grep -E -o '[0-9\.]+' | cut -d'.' -f2)" -eq "12" ]]; then
+    ${PYTHON} -V
+    if [[ "$(${PYTHON} -V | /bin/grep -E -o '[0-9\.]+' | cut -d'.' -f2)" == "12" ]]; then
         # Python 3.12 is too early, and some modules cannot be installed yet
         LIBS="(echo "${LIBS}" | /bin/sed 's/pysimdjson //')"
         MODS="(echo "${LIBS}" | /bin/sed 's/simdjson //')"
     fi
-
-    ${PYTHON} -m pip install ${LIBS} >/dev/null || exit 1
+ 
+    ${PYTHON} -m pip install -U pip wheel
+    ${PYTHON} -m pip install -U ${LIBS} >/dev/null || exit 1
 
     echo -n 'Run from '
     date '+%Y-%m-%d %Hh%M'

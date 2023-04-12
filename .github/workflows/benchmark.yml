@@ -33,5 +33,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
+          cache: pip
+          check-latest: true
           python-version: ${{ matrix.python.runs-on }}
-      - run: ./bench-json.sh
+      - run: python -m pip install -U pip wheel
+      - run: python -m pip install -r requirements.txt
+      - run: |
+          python -V
+          python bench-json.py

@@ -1,12 +1,12 @@
-"""
-Run JSON benchmarks on given modules.
-To not call it directly but from `./bench-json.sh`.
-"""
+"""Run JSON benchmarks on given modules."""
 import sys
 from collections import namedtuple
 from timeit import timeit
 from types import ModuleType
 from typing import Any, Dict, List
+
+# XXX: here you set which module you want to bhenchmark
+MODULES_TO_TEST = ["fast_json", "orjson", "rapidjson", "simdjson", "simplejson", "ujson"]
 
 RAW = (
     '[["uint256", "amountOutMin", 235921602440841030081], ["address[]", "path", ["0x'
@@ -42,7 +42,7 @@ def run_loads(implementation: ModuleType) -> Dict[str, Any]:
 def run(stmt: str, setup: str) -> float:
     try:
         return timeit(stmt=stmt, setup=setup)
-    except (AssertionError, OverflowError, TypeError, ValueError):
+    except (AssertionError, ImportError, OverflowError, TypeError, ValueError):
         return 0.0
 
 
@@ -103,7 +103,7 @@ def benchmark(*implementations: str) -> List[str]:
                 candidates.append(impl)
 
         print(
-            impl.ljust(justify),
+            f"    {impl.ljust(justify)}",
             "loads:",
             res(loads),
             coef(loads_coef),
@@ -117,12 +117,12 @@ def benchmark(*implementations: str) -> List[str]:
     return candidates
 
 
-def main(*modules: str) -> int:
-    all_modules = ["json"] + list(modules)
+def main() -> int:
+    all_modules = ["json"] + sorted(MODULES_TO_TEST)
     candidates = ", ".join(benchmark(*all_modules))
     print(f"\nPotential {candidates = }")
     return int(not candidates)
 
 
 if __name__ == "__main__":
-    sys.exit(main(*sys.argv[1:]))
+    sys.exit(main())

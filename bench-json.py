@@ -1,6 +1,6 @@
 """
 Run JSON benchmarks on given modules.
-To not call it directly but from `./dev/bench-json.sh`.
+To not call it directly but from `./bench-json.sh`.
 """
 import sys
 from collections import namedtuple

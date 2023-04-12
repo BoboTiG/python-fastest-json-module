@@ -25,8 +25,8 @@ main() {
 
     if [[ "$(${PYTHON} -V | /bin/grep -E -o '[0-9\.]+' | head -n1 | cut -d'.' -f2)" == "12" ]]; then
         # Python 3.12 is too early, and some modules cannot be installed yet
-        LIBS="(echo "${LIBS}" | /bin/sed 's/pysimdjson //')"
-        MODS="(echo "${MODS}" | /bin/sed 's/simdjson //')"
+        LIBS="$(echo "${LIBS}" | /bin/sed 's/pysimdjson //')"
+        MODS="$(echo "${MODS}" | /bin/sed 's/simdjson //')"
     fi
  
     ${PYTHON} -m pip install -U pip wheel >/dev/null || exit 1

@@ -23,8 +23,7 @@ main() {
     python3 -m venv "${VENV}"
     source "${VENV}/bin/activate"
 
-    ${PYTHON} -m pip install -U pip wheel >/dev/null
-    ${PYTHON} -m pip install -U ${LIBS} >/dev/null || exit 1
+    ${PYTHON} -m pip install ${LIBS} >/dev/null || exit 1
 
     echo -n 'Run from '
     date '+%Y-%m-%d %Hh%M'

@@ -42,7 +42,7 @@ def run_loads(implementation: ModuleType) -> Dict[str, Any]:
 def run(stmt: str, setup: str) -> float:
     try:
         return timeit(stmt=stmt, setup=setup)
-    except (AssertionError, OverflowError, TypeError, ValueError):
+    except (AssertionError, ImportError, OverflowError, TypeError, ValueError):
         return 0.0
 
 
@@ -103,7 +103,7 @@ def benchmark(*implementations: str) -> List[str]:
                 candidates.append(impl)
 
         print(
-            impl.ljust(justify),
+            f"    {impl.ljust(justify)}",
             "loads:",
             res(loads),
             coef(loads_coef),

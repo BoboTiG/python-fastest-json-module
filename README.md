@@ -4,7 +4,7 @@ Run Python JSON benchmarks to find the fastest module that can be used as a drop
 
 Benchmarks are run from a [GitHub workflow](.github/workflows/benchmark.yml).
 
-See the [requirements.txt](requirements.txt) file for exact modules being tested.
+See the [requirements.txt](requirements.txt) file for exact modules being tested, and [which imports](bench-json.py#L9) are being used in the benchmark script.
 
 ## Results
 

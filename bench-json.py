@@ -6,7 +6,7 @@ from types import ModuleType
 from typing import Any, Dict, List
 
 # XXX: here you set which modules you want to benchmark
-MODULES_TO_TEST = ["fast_json", "orjson", "rapidjson", "simdjson", "simplejson", "ujson"]
+MODULES_TO_TEST = ["fast_json", "rapidjson", "simplejson", "ujson"]
 
 RAW = (
     '[["uint256", "amountOutMin", 235921602440841030081], ["address[]", "path", ["0x'

@@ -14,7 +14,7 @@ RAW = (
     'f0f17cc"]], ["address", "to", "0x6ef4158bf7304b966929945248927fb400ece8b5"], ["'
     'uint256", "deadline", 1647035873]]'
 )
-FMT = [
+FORMATED = [
     ["uint256", "amountOutMin", 235921602440841030081],
     [
         "address[]",
@@ -32,7 +32,7 @@ Ref = namedtuple("Ref", "loads, dumps")
 
 
 def run_dumps(implementation: ModuleType) -> str:
-    return implementation.dumps(FMT)
+    return implementation.dumps(FORMATED)
 
 
 def run_loads(implementation: ModuleType) -> Dict[str, Any]:
@@ -41,9 +41,10 @@ def run_loads(implementation: ModuleType) -> Dict[str, Any]:
 
 def run(stmt: str, setup: str) -> float:
     try:
-        return timeit(stmt=stmt, setup=setup)
+        timeit(setup=setup, number=1)
     except (AssertionError, ImportError, OverflowError, TypeError, ValueError):
         return 0.0
+    return timeit(stmt=stmt, setup=setup)
 
 
 def res(value: float) -> str:
@@ -60,8 +61,7 @@ def is_potential_candidate(loads_coef: float, dumps_coef: float) -> bool:
 
 
 def potential_candidate(good: bool) -> str:
-    color = "32" if good else "31"
-    text = "✅" if good else "❌"
+    color, text = ("32", "✅") if good else ("31", "❌")
     return f"\033[{color}m{text}\033[0m"
 
 
@@ -76,8 +76,8 @@ def benchmark(*implementations: str) -> List[str]:
             "; ".join(
                 [
                     f"import {impl}",
-                    "from __main__ import FMT, run_loads",
-                    f"assert run_loads({impl})[0] == FMT[0]",
+                    "from __main__ import FORMATED, run_loads",
+                    f"assert run_loads({impl}) == FORMATED",
                 ]
             ),
         )
@@ -92,7 +92,7 @@ def benchmark(*implementations: str) -> List[str]:
             ),
         )
 
-        if not reference:
+        if reference is None:
             reference = Ref(loads, dumps)
             loads_coef = dumps_coef = 1
             good = True
@@ -104,13 +104,9 @@ def benchmark(*implementations: str) -> List[str]:
 
         print(
             f"    {impl.ljust(justify)}",
-            "loads:",
-            res(loads),
-            coef(loads_coef),
+            f"loads: {res(loads)} {coef(loads_coef)}",
             "|",
-            "dumps:",
-            res(dumps),
-            coef(dumps_coef),
+            f"dumps: {res(dumps)} {coef(dumps_coef)}",
             potential_candidate(good),
         )
 

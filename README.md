@@ -8,10 +8,9 @@ See the [requirements.txt](requirements.txt) file for exact modules being tested
 
 ## Results
 
-- GNU/Linux + macOS: current cross-versions winner is `python-rapidjson` :tada:
-- Windows: current cross-versions winner is `ujson` :tada:
-
-Have a look at detailled results for all currently supported Python versions: [GNU/Linux](results/linux.md), [macOS](results/mac.md), and [Windows](results/windows.md).
+- 🐧 [GNU/Linux](results/linux.md) (spoiler: `python-rapidjson` :tada:)
+- 🍎 [macOS](results/mac.md) (spoiler: `python-rapidjson` :tada:)
+- 🪟 [Windows](results/windows.md) (spoiler: `ujson` :tada:)
 
 ## Not An Option
 

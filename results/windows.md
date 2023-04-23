@@ -1,10 +1,8 @@
 # Fatest JSON Python module on Windows
 
-## Results
-
 The current cross-versions winner is `usjon` :tada:
 
-### Python 3.12
+## Python 3.12
 
 ```diff
 @@ Python 3.12.0 @@
@@ -15,7 +13,7 @@ The current cross-versions winner is `usjon` :tada:
 - simplejson loads: 25.721  x8.9 | dumps: 30.215  x7.3
 ```
 
-### Python 3.11
+## Python 3.11
 
 ```diff
 @@ Python 3.11.3 @@
@@ -26,7 +24,7 @@ The current cross-versions winner is `usjon` :tada:
 - simplejson loads:  4.529  x1.4 | dumps:  9.320  x2.0
 ```
 
-### Python 3.10
+## Python 3.10
 
 ```diff
 @@ Python 3.10.11 @@
@@ -37,7 +35,7 @@ The current cross-versions winner is `usjon` :tada:
 - simplejson loads:  3.958  x1.2 | dumps:  9.319  x1.8
 ```
 
-### Python 3.9
+## Python 3.9
 
 ```diff
 @@ Python 3.9.13 @@
@@ -48,7 +46,7 @@ The current cross-versions winner is `usjon` :tada:
 - simplejson loads:  4.168  x1.3 | dumps:  7.906  x1.7
 ```
 
-### Python 3.8
+## Python 3.8
 
 ```diff
 @@ Python 3.8.10 @@
@@ -59,7 +57,7 @@ The current cross-versions winner is `usjon` :tada:
 - simplejson loads:  4.464  x1.1 | dumps:  8.292  x1.5
 ```
 
-### Python 3.7
+## Python 3.7
 
 ```diff
 @@ Python 3.7.9 @@

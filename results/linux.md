@@ -1,10 +1,8 @@
 # Fatest JSON Python module on GNU/Linux
 
-## Results
-
 The current cross-versions winner is `python-rapidjson` :tada:
 
-### Python 3.12
+## Python 3.12
 
 ```diff
 @@ Python 3.12.0 @@
@@ -15,7 +13,7 @@ The current cross-versions winner is `python-rapidjson` :tada:
 - simplejson loads: 25.065  x9.3 | dumps: 27.842  x6.5
 ```
 
-### Python 3.11
+## Python 3.11
 
 ```diff
 @@ Python 3.11.3 @@
@@ -26,7 +24,7 @@ The current cross-versions winner is `python-rapidjson` :tada:
 - simplejson loads:  3.172  x1.1 | dumps:  8.808  x1.8
 ```
 
-### Python 3.10
+## Python 3.10
 
 ```diff
 @@ Python 3.10.11 @@
@@ -37,7 +35,7 @@ The current cross-versions winner is `python-rapidjson` :tada:
 - simplejson loads:  3.626  x1.1 | dumps:  9.292  x1.9
 ```
 
-### Python 3.9
+## Python 3.9
 
 ```diff
 @@ Python 3.9.16 @@
@@ -48,7 +46,7 @@ The current cross-versions winner is `python-rapidjson` :tada:
 - simplejson loads:  4.694  x1.1 | dumps: 10.459  x1.7
 ```
 
-### Python 3.8
+## Python 3.8
 
 ```diff
 @@ Python 3.8.16 @@
@@ -59,7 +57,7 @@ The current cross-versions winner is `python-rapidjson` :tada:
 - simplejson loads:  4.436  x1.1 | dumps: 10.150  x1.9
 ```
 
-### Python 3.7
+## Python 3.7
 
 ```diff
 @@ Python 3.7.16 @@

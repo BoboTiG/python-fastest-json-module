@@ -3,10 +3,11 @@ import sys
 from collections import namedtuple
 from timeit import timeit
 from types import ModuleType
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 # XXX: here you set which modules you want to benchmark
 MODULES_TO_TEST = ["fast_json", "rapidjson", "simplejson", "ujson"]
+MODULE_REF = "json"
 
 RAW = (
     '[["uint256", "amountOutMin", 235921602440841030081], ["address[]", "path", ["0x'
@@ -47,13 +48,17 @@ def run(stmt: str, setup: str) -> float:
     return timeit(stmt=stmt, setup=setup)
 
 
-def res(value: float) -> str:
-    return f"{value:.3f}" if value else "-.---"
+def res(value: float, justification: int = 6) -> str:
+    text = f"{value:.3f}" if value else "-.---"
+    return text.rjust(justification)
 
 
-def coef(value: float) -> str:
+def coef(value: float, justification: int = 5) -> str:
+    if not value:
+        return "x-.-".rjust(justification)
     color = "33" if value == 1.0 else "31" if value > 1.0 else "32"
-    return f"\033[{color}mx{value:.1f}\033[0m" if value else "x-.-"
+    text = f"x{value:.1f}".rjust(justification)
+    return f"\033[{color}m{text}\033[0m"
 
 
 def is_potential_candidate(loads_coef: float, dumps_coef: float) -> bool:
@@ -65,10 +70,10 @@ def potential_candidate(good: bool) -> str:
     return f"\033[{color}m{text}\033[0m"
 
 
-def benchmark(*implementations: str) -> List[str]:
-    candidates: List[str] = []
+def benchmark(*implementations: str) -> None:
+    candidates: List[Tuple[bool, str, float, float, float, float]] = []
     reference = None
-    justify = len(max(implementations, key=len)) + 1
+    justify = len(max(implementations, key=len))
 
     for impl in implementations:
         loads = run(
@@ -94,30 +99,30 @@ def benchmark(*implementations: str) -> List[str]:
 
         if reference is None:
             reference = Ref(loads, dumps)
-            loads_coef = dumps_coef = 1
-            good = True
+            candidates.append((False, impl, loads, 1.0, dumps, 1.0))
         else:
             loads_coef = loads / reference.loads
             dumps_coef = dumps / reference.dumps
-            if good := is_potential_candidate(loads_coef, dumps_coef):
-                candidates.append(impl)
+            is_candidate = is_potential_candidate(loads_coef, dumps_coef)
+            candidates.append((not is_candidate, impl, loads, loads_coef, dumps, dumps_coef))
 
-        print(
-            f"    {impl.ljust(justify)}",
-            f"loads: {res(loads)} {coef(loads_coef)}",
-            "|",
-            f"dumps: {res(dumps)} {coef(dumps_coef)}",
-            potential_candidate(good),
-        )
-
-    return candidates
+    signs = {None: "!", True: "+", False: "-"}
+    fmt = "{} {} loads: {} {} | dumps: {} {}"
+    for is_candidate, impl, loads, loads_coef, dumps, dumps_coef in sorted(
+        candidates, key=lambda c: (c[0], c[3] + c[5], c[1])
+    ):
+        # Ugly, I know. But to simplify the previous `sorted()` call, `is_candidate` is True for non candidate implementations
+        is_candidate = not is_candidate
+        sign = signs[is_candidate if impl != MODULE_REF else None]
+        print(fmt.format(sign, impl.ljust(justify, "…"), res(loads), coef(loads_coef), res(dumps), coef(dumps_coef)))
 
 
 def main() -> int:
-    all_modules = ["json"] + sorted(MODULES_TO_TEST)
-    candidates = ", ".join(benchmark(*all_modules))
-    print(f"\nPotential {candidates = }")
-    return int(not candidates)
+    print("@@", "Python", ".".join(map(str, sys.version_info[:3])), "@@")
+
+    all_modules = [MODULE_REF] + MODULES_TO_TEST
+    benchmark(*all_modules)
+    return 0
 
 
 if __name__ == "__main__":

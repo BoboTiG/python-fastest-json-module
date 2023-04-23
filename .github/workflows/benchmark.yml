@@ -14,11 +14,13 @@ jobs:
         os:
           - emoji: 🐧
             runs-on: [ubuntu-latest]
-          # - emoji: 🍎
-          #   runs-on: [macos-latest]
-          # - emoji: 🪟
-          #   runs-on: [windows-latest]
+          - emoji: 🍎
+            runs-on: [macos-latest]
+          - emoji: 🪟
+            runs-on: [windows-latest]
         python:
+          - name: CPython 3.7
+            runs-on: "3.7"
           - name: CPython 3.8
             runs-on: "3.8"
           - name: CPython 3.9
@@ -40,4 +42,4 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: |
           python -V
-          python bench-json.py
+          python -X utf8 bench-json.py

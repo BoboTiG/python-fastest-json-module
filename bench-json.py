@@ -6,7 +6,7 @@ from types import ModuleType
 from typing import Any, Dict, List, Tuple
 
 # XXX: here you set which modules you want to benchmark
-MODULES_TO_TEST = ["fast_json", "rapidjson", "simplejson", "ujson"]
+MODULES_TO_TEST = ["fast_json", "pyjson5", "rapidjson", "simplejson", "ujson"]
 MODULE_REF = "json"
 
 RAW = (

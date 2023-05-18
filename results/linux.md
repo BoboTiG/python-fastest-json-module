@@ -11,6 +11,7 @@ The current cross-versions winner is `python-rapidjson` :tada:
 ! json……………… loads:  2.694  x1.0 | dumps:  4.261  x1.0
 - fast_json… loads:  2.092  x0.8 | dumps:  5.578  x1.3
 - simplejson loads: 25.065  x9.3 | dumps: 27.842  x6.5
+- pyjson5……… loads:  -.---  x-.- | dumps:  -.---  x-.-
 ```
 
 ## Python 3.11

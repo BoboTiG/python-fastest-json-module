@@ -62,15 +62,3 @@ The current cross-versions winner is `usjon` :tada:
 - fast_json… loads:  2.361  x0.8 | dumps:  5.739  x1.4
 - simplejson loads:  3.706  x1.2 | dumps:  7.534  x1.8
 ```
-
-## Python 3.7
-
-```diff
-@@ Python 3.7.9 @@
-+ ujson…………… loads:  2.585  x0.6 | dumps:  2.477  x0.5
-+ rapidjson… loads:  3.676  x0.8 | dumps:  2.667  x0.5
-! json……………… loads:  4.352  x1.0 | dumps:  5.361  x1.0
-- pyjson5……… loads:  3.153  x0.7 | dumps:  5.373  x1.0
-- fast_json… loads:  2.463  x0.6 | dumps:  7.240  x1.4
-- simplejson loads:  5.321  x1.2 | dumps:  8.914  x1.7
-```

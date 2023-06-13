@@ -29,8 +29,6 @@ jobs:
             runs-on: "3.9"
           - name: CPython 3.8
             runs-on: "3.8"
-          - name: CPython 3.7
-            runs-on: "3.7"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4

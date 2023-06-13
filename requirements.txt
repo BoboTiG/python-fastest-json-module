@@ -2,4 +2,4 @@ fast-json==0.3.2
 pyjson5==1.6.2; python_version < "3.12"
 python-rapidjson==1.10
 simplejson==3.19.1
-ujson==5.7.0
+ujson==5.8.0

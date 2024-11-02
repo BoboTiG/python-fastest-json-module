@@ -1,56 +1,68 @@
-# Fatest JSON Python module on macOS
+# Fastest JSON Python module on macOS
 
 The current cross-versions winner is `python-rapidjson` :tada:
+
+## Python 3.13
+
+```diff
+@@ Python 3.13.0 @@
++ rapidjson… loads:  0.889  x0.7 | dumps:  1.237  x0.6
++ ujson…………… loads:  1.005  x0.8 | dumps:  1.297  x0.6
+! json……………… loads:  1.244  x1.0 | dumps:  2.045  x1.0
+- fast_json… loads:  0.955  x0.8 | dumps:  2.551  x1.2
+- pyjson5……… loads:  1.519  x1.2 | dumps:  1.634  x0.8
+- simplejson loads:  1.507  x1.2 | dumps:  4.331  x2.1
+```
 
 ## Python 3.12
 
 ```diff
-@@ Python 3.12.0 @@
-+ rapidjson… loads:  2.421  x0.5 | dumps:  2.832  x0.4
-+ ujson…………… loads:  3.290  x0.7 | dumps:  3.486  x0.5
-! json……………… loads:  4.742  x1.0 | dumps:  6.676  x1.0
-- pyjson5……… loads:  -.---  x-.- | dumps:  -.---  x-.-
-- fast_json… loads:  3.522  x0.7 | dumps:  9.165  x1.4
-- simplejson loads: 42.004  x8.9 | dumps: 52.725  x7.9
+@@ Python 3.12.7 @@
++ rapidjson… loads:  0.947  x0.8 | dumps:  1.218  x0.6
++ ujson…………… loads:  1.011  x0.8 | dumps:  1.287  x0.6
+! json……………… loads:  1.234  x1.0 | dumps:  2.023  x1.0
+- pyjson5……… loads:  1.510  x1.2 | dumps:  1.665  x0.8
+- fast_json… loads:  0.956  x0.8 | dumps:  2.606  x1.3
+- simplejson loads:  1.508  x1.2 | dumps:  4.376  x2.2
 ```
 
 ## Python 3.11
 
 ```diff
-@@ Python 3.11.4 @@
-+ rapidjson… loads:  2.700  x0.6 | dumps:  3.335  x0.5
-+ ujson…………… loads:  3.461  x0.8 | dumps:  3.191  x0.5
-+ pyjson5……… loads:  3.700  x0.8 | dumps:  4.918  x0.8
-! json……………… loads:  4.439  x1.0 | dumps:  6.396  x1.0
-- fast_json… loads:  3.162  x0.7 | dumps:  8.655  x1.4
-- simplejson loads:  5.197  x1.2 | dumps: 14.173  x2.2
+@@ Python 3.11.9 @@
++ rapidjson… loads:  0.811  x0.7 | dumps:  1.208  x0.6
++ ujson…………… loads:  0.888  x0.8 | dumps:  1.137  x0.6
+! json……………… loads:  1.144  x1.0 | dumps:  1.947  x1.0
+- pyjson5……… loads:  1.361  x1.2 | dumps:  1.343  x0.7
+- fast_json… loads:  0.858  x0.8 | dumps:  2.386  x1.2
+- simplejson loads:  1.523  x1.3 | dumps:  3.968  x2.0
 ```
 
 ## Python 3.10
 
 ```diff
-@@ Python 3.10.12 @@
-+ rapidjson… loads:  2.162  x0.5 | dumps:  2.735  x0.4
-+ ujson…………… loads:  2.646  x0.6 | dumps:  2.750  x0.4
-+ pyjson5……… loads:  2.845  x0.7 | dumps:  3.805  x0.6
-! json……………… loads:  4.347  x1.0 | dumps:  6.213  x1.0
-- fast_json… loads:  2.607  x0.6 | dumps:  8.229  x1.3
-- simplejson loads:  5.470  x1.3 | dumps: 14.352  x2.3
+@@ Python 3.10.11 @@
++ ujson…………… loads:  0.870  x0.7 | dumps:  1.107  x0.5
++ rapidjson… loads:  0.815  x0.6 | dumps:  1.219  x0.6
+! json……………… loads:  1.267  x1.0 | dumps:  2.042  x1.0
+- pyjson5……… loads:  1.384  x1.1 | dumps:  1.411  x0.7
+- fast_json… loads:  0.861  x0.7 | dumps:  2.623  x1.3
+- simplejson loads:  1.511  x1.2 | dumps:  4.082  x2.0
 ```
 
 ## Python 3.9
 
 ```diff
-@@ Python 3.9.17 @@
-+ rapidjson… loads:  2.612  x0.6 | dumps:  2.829  x0.4
-+ ujson…………… loads:  2.669  x0.6 | dumps:  2.760  x0.4
-+ pyjson5……… loads:  2.922  x0.6 | dumps:  3.900  x0.6
-! json……………… loads:  4.604  x1.0 | dumps:  6.496  x1.0
-- fast_json… loads:  2.852  x0.6 | dumps:  8.546  x1.3
-- simplejson loads:  5.083  x1.1 | dumps: 11.118  x1.7
+@@ Python 3.9.13 @@
++ ujson…………… loads:  0.982  x0.6 | dumps:  1.148  x0.5
++ rapidjson… loads:  0.978  x0.5 | dumps:  1.232  x0.5
++ pyjson5……… loads:  1.652  x0.9 | dumps:  1.778  x0.7
+! json……………… loads:  1.781  x1.0 | dumps:  2.529  x1.0
+- fast_json… loads:  0.998  x0.6 | dumps:  3.276  x1.3
+- simplejson loads:  2.054  x1.2 | dumps:  4.077  x1.6
 ```
 
-## Python 3.8
+## Python 3.8 (no more updated since 2023-06-13)
 
 ```diff
 @@ Python 3.8.17 @@
@@ -60,4 +72,16 @@ The current cross-versions winner is `python-rapidjson` :tada:
 ! json……………… loads:  4.777  x1.0 | dumps:  5.705  x1.0
 - fast_json… loads:  2.777  x0.6 | dumps:  8.685  x1.5
 - simplejson loads:  5.266  x1.1 | dumps: 10.581  x1.9
+```
+
+## Python 3.7 (no more updated since 2023-05-18)
+
+```diff
+@@ Python 3.7.16 @@
++ ujson…………… loads:  2.534  x0.5 | dumps:  2.579  x0.4
++ rapidjson… loads:  2.337  x0.5 | dumps:  2.824  x0.5
++ pyjson5……… loads:  2.806  x0.5 | dumps:  4.626  x0.8
+! json……………… loads:  5.180  x1.0 | dumps:  6.031  x1.0
+- fast_json… loads:  2.552  x0.5 | dumps:  8.481  x1.4
+- simplejson loads:  5.605  x1.1 | dumps: 10.403  x1.7
 ```

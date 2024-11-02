@@ -1,4 +1,4 @@
-# fast-json==0.3.2
+fast-json==0.3.2
 pyjson5==1.6.7
 python-rapidjson==1.20
 simplejson==3.19.3

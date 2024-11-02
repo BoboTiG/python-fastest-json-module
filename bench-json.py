@@ -3,7 +3,7 @@ import sys
 from collections import namedtuple
 from timeit import timeit
 from types import ModuleType
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 # XXX: here you set which modules you want to benchmark
 MODULES_TO_TEST = ["fast_json", "pyjson5", "rapidjson", "simplejson", "ujson"]
@@ -36,7 +36,7 @@ def run_dumps(implementation: ModuleType) -> str:
     return implementation.dumps(FORMATED)
 
 
-def run_loads(implementation: ModuleType) -> Dict[str, Any]:
+def run_loads(implementation: ModuleType) -> dict[str, Any]:
     return implementation.loads(RAW)
 
 
@@ -71,7 +71,7 @@ def potential_candidate(good: bool) -> str:
 
 
 def benchmark(*implementations: str) -> None:
-    candidates: List[Tuple[bool, str, float, float, float, float]] = []
+    candidates: list[tuple[bool, str, float, float, float, float]] = []
     reference = None
     justify = len(max(implementations, key=len))
 

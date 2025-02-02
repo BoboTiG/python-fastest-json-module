@@ -5,25 +5,25 @@ The current cross-versions winner is `usjon` :tada:
 ## Python 3.13
 
 ```diff
-@@ Python 3.13.0 @@
-+ ujson…………… loads:  2.016  x0.9 | dumps:  2.172  x0.7
-+ pyjson5……… loads:  2.176  x1.0 | dumps:  3.042  x1.0
-! json……………… loads:  2.176  x1.0 | dumps:  3.142  x1.0
-- fast_json… loads:  2.001  x0.9 | dumps:  4.121  x1.3
-- rapidjson… loads:  3.552  x1.6 | dumps:  1.909  x0.6
-- simplejson loads:  2.544  x1.2 | dumps:  7.168  x2.3
+@@ Python 3.13.1 @@
++ ujson…………… loads:  2.098  x0.9 | dumps:  2.152  x0.7
++ pyjson5……… loads:  2.164  x1.0 | dumps:  2.948  x0.9
+! json……………… loads:  2.239  x1.0 | dumps:  3.148  x1.0
+- rapidjson… loads:  2.923  x1.3 | dumps:  2.113  x0.7
+- fast_json… loads:  2.072  x0.9 | dumps:  4.113  x1.3
+- simplejson loads:  2.516  x1.1 | dumps:  7.170  x2.3
 ```
 
 ## Python 3.12
 
 ```diff
-@@ Python 3.12.7 @@
-+ ujson…………… loads:  2.056  x0.8 | dumps:  2.164  x0.7
-+ pyjson5……… loads:  2.204  x0.8 | dumps:  3.138  x1.0
-! json……………… loads:  2.621  x1.0 | dumps:  3.139  x1.0
-- rapidjson… loads:  2.906  x1.1 | dumps:  1.907  x0.6
-- fast_json… loads:  2.071  x0.8 | dumps:  4.021  x1.3
-- simplejson loads:  2.610  x1.0 | dumps:  6.988  x2.2
+@@ Python 3.12.8 @@
++ ujson…………… loads:  2.098  x0.9 | dumps:  2.115  x0.7
++ pyjson5……… loads:  2.166  x0.9 | dumps:  2.960  x1.0
+! json……………… loads:  2.297  x1.0 | dumps:  3.064  x1.0
+- rapidjson… loads:  2.911  x1.3 | dumps:  1.866  x0.6
+- fast_json… loads:  2.101  x0.9 | dumps:  3.936  x1.3
+- simplejson loads:  2.623  x1.1 | dumps:  7.052  x2.3
 ```
 
 ## Python 3.11

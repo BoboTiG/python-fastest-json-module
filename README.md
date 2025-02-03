@@ -8,9 +8,9 @@ See the [requirements.txt](requirements.txt) file for exact modules being tested
 
 ## Results
 
-- 🐧 [GNU/Linux](results/linux.md) (spoiler: `python-rapidjson` :tada:)
-- 🍎 [macOS](results/mac.md) (spoiler: `python-rapidjson` :tada:)
-- 🪟 [Windows](results/windows.md) (spoiler: `ujson` :tada:)
+- 🐧 [GNU/Linux](results/linux.md)
+- 🍎 [macOS](results/mac.md)
+- 🪟 [Windows](results/windows.md)
 
 ## Not An Option
 

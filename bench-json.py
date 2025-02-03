@@ -85,7 +85,7 @@ def run(stmt: str, setup: str) -> float:
         timeit(setup=setup, number=1)
     except (AssertionError, ImportError, OverflowError, TypeError, ValueError):
         return 0.0
-    return timeit(stmt=stmt, setup=setup, number=100_000)
+    return timeit(stmt=stmt, setup=setup)
 
 
 def res(value: float, justification: int = 6) -> str:

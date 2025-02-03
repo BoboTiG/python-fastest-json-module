@@ -20,7 +20,23 @@ RAW = (
     '[["uint256", "amountOutMin", 235921602440841030081], ["address[]", "path", ["0x'
     'b31f66aa3c1e785363f0875a1b74e27b85fd66c7", "0x3df307e8e9a897da488211682430776cd'
     'f0f17cc"]], ["address", "to", "0x6ef4158bf7304b966929945248927fb400ece8b5"], ["'
-    'uint256", "deadline", 1647035873]]'
+    'uint256", "deadline", 1647035873], {"txt": [{"call": {"contract": "020000000000'
+    '0000000000000000000000000000000000000000000000000000", "fn_args": "AAAAAAAAAAC1'
+    "dNrXXQUdOZP7m6fDZFPKnBDWP8SLDZJBRN2nzm4EPSMTh16bHMpQUAAAAAAAAAAC1dNrXXQUdOZP7m6"
+    "fDZFPKnBDWP8SLDZJBRN2nzm4EPSMTh16bHMpQUAAAAAAAAAAC1dNrXXQUdOZP7m6fDZFPKnBDWP8SL"
+    "DZJBRN2nzm4EPSMTh16bHMpQUAAAAAAAAAAC1dNrXXQUdOZP7m6fDZFPKnBDWP8SLDZJBRN2nzm4EPS"
+    "MTh16bHMpQUAAAAAAAAAAC1dNrXXQUdOZP7m6fDZFPKnBDWP8SLDZJBRN2nzm4EPSMTh16bHMpQUAAA"
+    "AAAAAAAC1dNrXXQUdOZP7m6fDZFPKnBDWP8SLDZJBRN2nzm4EPSMTh16bHMpQUAAAAAAAAAAC1dNrXX"
+    "QUdOZP7m6fDZFPKnBDWP8SLDZJBRN2nzm4EPSMTh16bHMpQUAAAAAAAAAAC1dNrXXQUdOZP7m6fDZFP"
+    "KnBDWP8SLDZJBRN2nzm4EPSMTh16bHMpQUAAAAAAAAAAC1dNrXXQUdOZP7m6fDZFPKnBDWP8SLDZJBR"
+    "N2nzm4EPSMTh16bHMpQUAAAAAAAAAAC1dNrXXQUdOZP7m6fDZFPKnBDWP8SLDZJBRN2nzm4EPSMTh16"
+    'bHMpQU", "fn_name": "stake"}, "deposit": 1070000000000, "fee": {"gas_limit": "2'
+    '000000000",  "gas_price": "1", "refund_address": "21SvzTdXggQkZpnk21SvzTdXggQkZ'
+    "pnk21SvzTdXggQkZpnk21SvzTdXggQkZpnk21SvzTdXggQkZpnk21SvzTdXggQkZpnk21SvzTdXggQk"
+    'Zpnk21SvzTdXggQkZpnk21SvzTdXggQkZpnk"}, "is_deploy": false, "memo": null, "nonc'
+    'e": 35, "receiver": null, "sender": "21SvzTdXggQkZpnk21SvzTdXggQkZpnk21SvzTdXgg'
+    "QkZpnk21SvzTdXggQkZpnk21SvzTdXggQkZpnk21SvzTdXggQkZpnk21SvzTdXggQkZpnk21SvzTdXg"
+    'gQkZpnk21SvzTdXggQkZpnk", "type": "moonlight", "value": 0}]}]'
 )
 FORMATED = [
     ["uint256", "amountOutMin", 235921602440841030081],
@@ -34,6 +50,31 @@ FORMATED = [
     ],
     ["address", "to", "0x6ef4158bf7304b966929945248927fb400ece8b5"],
     ["uint256", "deadline", 1647035873],
+    {
+        "txt": [
+            {
+                "call": {
+                    "contract": "0200000000000000000000000000000000000000000000000000000000000000",
+                    "fn_args": "AAAAAAAAAAC1dNrXXQUdOZP7m6fDZFPKnBDWP8SLDZJBRN2nzm4EPSMTh16bHMpQU"
+                    * 10,
+                    "fn_name": "stake",
+                },
+                "deposit": 1070000000000,
+                "fee": {
+                    "gas_limit": "2000000000",
+                    "gas_price": "1",
+                    "refund_address": "21SvzTdXggQkZpnk" * 9,
+                },
+                "is_deploy": False,
+                "memo": None,
+                "nonce": 35,
+                "receiver": None,
+                "sender": "21SvzTdXggQkZpnk" * 9,
+                "type": "moonlight",
+                "value": 0,
+            }
+        ]
+    },
 ]
 
 Ref = namedtuple("Ref", "loads, dumps")
@@ -44,7 +85,7 @@ def run(stmt: str, setup: str) -> float:
         timeit(setup=setup, number=1)
     except (AssertionError, ImportError, OverflowError, TypeError, ValueError):
         return 0.0
-    return timeit(stmt=stmt, setup=setup)
+    return timeit(stmt=stmt, setup=setup, number=100_000)
 
 
 def res(value: float, justification: int = 6) -> str:

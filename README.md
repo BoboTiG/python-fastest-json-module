@@ -1,4 +1,4 @@
-# Fatest JSON Python module
+# Fastest JSON Python module
 
 Run Python JSON benchmarks to find the fastest module that can be used as a drop-in replacement of the `json` standard one.
 
@@ -14,12 +14,22 @@ See the [requirements.txt](requirements.txt) file for exact modules being tested
 
 ## Not An Option
 
-- `cysimdjson`: not a drop-in replacement
-- `hyperjson`: no more maintained, and the author recommands `orjson`
-- `jsonlib2`: no more maintained
-- `libpy_simdjson`: no wheel provided
-- `metamagic.json`: no more maintained
-- `orjson`: not a drop-in replacement
-- `python-cjson`: no more maintained
-- `simdjson`: not a drop-in replacement
-- `yajl`: no more maintained
+### Incorrect Output
+
+But they are still tested, in case their behavior changes over time.
+
+- `orjson`
+- `pysimdjson`
+
+### Not a Drop-In Replacement
+
+- `cysimdjson`
+
+### No More Maintained
+
+- `hyperjson`
+- `jsonlib2`
+- `libpy_simdjson`
+- `metamagic.json`
+- `python-cjson`
+- `yajl`

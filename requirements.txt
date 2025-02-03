@@ -1,5 +1,7 @@
 fast-json==0.3.2
+orjson==3.10.15
 pyjson5==1.6.8
+pysimdjson==6.0.2
 python-rapidjson==1.20
 simplejson==3.19.3
 ujson==5.10.0

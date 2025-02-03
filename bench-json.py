@@ -1,12 +1,19 @@
 """Run JSON benchmarks on given modules."""
+
 import sys
 from collections import namedtuple
 from timeit import timeit
-from types import ModuleType
-from typing import Any
 
 # XXX: here you set which modules you want to benchmark
-MODULES_TO_TEST = ["fast_json", "pyjson5", "rapidjson", "simplejson", "ujson"]
+MODULES_TO_TEST = [
+    "fast_json",
+    "orjson",
+    "pyjson5",
+    "rapidjson",
+    "simdjson",
+    "simplejson",
+    "ujson",
+]
 MODULE_REF = "json"
 
 RAW = (
@@ -30,14 +37,6 @@ FORMATED = [
 ]
 
 Ref = namedtuple("Ref", "loads, dumps")
-
-
-def run_dumps(implementation: ModuleType) -> str:
-    return implementation.dumps(FORMATED)
-
-
-def run_loads(implementation: ModuleType) -> dict[str, Any]:
-    return implementation.loads(RAW)
 
 
 def run(stmt: str, setup: str) -> float:
@@ -77,22 +76,22 @@ def benchmark(*implementations: str) -> None:
 
     for impl in implementations:
         loads = run(
-            f"run_loads({impl})",
+            "loads(RAW)",
             "; ".join(
                 [
-                    f"import {impl}",
-                    "from __main__ import FORMATED, run_loads",
-                    f"assert run_loads({impl}) == FORMATED",
+                    f"from {impl} import loads",
+                    "from __main__ import FORMATED, RAW",
+                    "assert loads(RAW) == FORMATED",
                 ]
             ),
         )
         dumps = run(
-            f"run_dumps({impl})",
+            "dumps(FORMATED)",
             "; ".join(
                 [
-                    f"import {impl}",
-                    "from __main__ import run_dumps",
-                    f"assert isinstance(run_dumps({impl}), str)",
+                    f"from {impl} import dumps",
+                    "from __main__ import FORMATED",
+                    "assert isinstance(dumps(FORMATED), str)",
                 ]
             ),
         )
@@ -101,20 +100,38 @@ def benchmark(*implementations: str) -> None:
             reference = Ref(loads, dumps)
             candidates.append((False, impl, loads, 1.0, dumps, 1.0))
         else:
-            loads_coef = loads / reference.loads
-            dumps_coef = dumps / reference.dumps
+            loads_coef = loads / reference.loads or 10
+            dumps_coef = dumps / reference.dumps or 10
             is_candidate = is_potential_candidate(loads_coef, dumps_coef)
-            candidates.append((not is_candidate, impl, loads, loads_coef, dumps, dumps_coef))
+            candidates.append(
+                (not is_candidate, impl, loads, loads_coef, dumps, dumps_coef)
+            )
 
     signs = {None: "!", True: "+", False: "-"}
     fmt = "{} {} loads: {} {} | dumps: {} {}"
     for is_candidate, impl, loads, loads_coef, dumps, dumps_coef in sorted(
         candidates, key=lambda c: (c[0], c[3] + c[5], c[1])
     ):
+        if loads_coef >= 10:
+            loads_coef = 0.0
+        if dumps_coef >= 10:
+            dumps_coef = 0.0
+        if loads_coef + dumps_coef == 0.0:
+            continue
+
         # Ugly, I know. But to simplify the previous `sorted()` call, `is_candidate` is True for non candidate implementations
         is_candidate = not is_candidate
         sign = signs[is_candidate if impl != MODULE_REF else None]
-        print(fmt.format(sign, impl.ljust(justify, "…"), res(loads), coef(loads_coef), res(dumps), coef(dumps_coef)))
+        print(
+            fmt.format(
+                sign,
+                impl.ljust(justify, "…"),
+                res(loads),
+                coef(loads_coef),
+                res(dumps),
+                coef(dumps_coef),
+            )
+        )
 
 
 def main() -> int:

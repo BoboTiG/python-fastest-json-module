@@ -1,6 +1,9 @@
 # Fastest JSON Python module
 
-[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/mschoentgen)
+> [!TIP]
+> Become **my boss** to help me work on this awesome software, and make the world better:
+> 
+> [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/mschoentgen)
 
 Run Python JSON benchmarks to find the fastest module that can be used as a drop-in replacement of the `json` standard one.
 

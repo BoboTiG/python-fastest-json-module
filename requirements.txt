@@ -1,6 +1,6 @@
 fast-json==0.3.2
 orjson==3.11.3
-pyjson5==1.6.9
+pyjson5==2.0.0
 pysimdjson==6.0.2 ; python_version < '3.13'
 python-rapidjson==1.21
 simplejson==3.20.2

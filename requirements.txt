@@ -4,4 +4,4 @@ pyjson5==2.0.1
 pysimdjson==6.0.2 ; python_version < '3.13'
 python-rapidjson==1.23
 simplejson==4.1.1
-ujson==5.11.0
+ujson==5.13.0
